@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('TransportationService');
 });
@@ -20,4 +21,6 @@ Route::get('/home', function () {
 
 Auth::routes();
 Route::post('/People', 'TScontroller@postOrder');
-
+route::get('/test',function () {
+    return view('testt');
+});

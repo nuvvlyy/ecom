@@ -104,4 +104,19 @@ class TScontroller extends Controller
     echo "happy";
     }
 
+    /**
+     *
+     */
+    public function caldistance()
+    {
+
+        $latitude1 = 39.46;
+        $longitude1 = -0.36;
+        $latitude2 = 40.40;
+        $longitude2 = -3.68;
+
+       $distance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng($latitude1, $longitude1), new google.maps.LatLng($latitude2, $longitude2));
+        echo $distance;
+    }
+
 }
