@@ -16,14 +16,19 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->string('order_id');
             $table->string('user_id');
-            $table->string('car');
             $table->string('labor');
             $table->string('product');
-            $table->string('start');
+            $table->string('start_county');
+            $table->string('start_zone');
             $table->string('namestart');
-            $table->string('destination');
+            $table->string('telstart');
+            $table->date('date_start');
+            $table->string('destination_county');
+            $table->string('destination_zone');
             $table->string('namedestination');
+            $table->string('teldestination');
             $table->timestamps();
+            //'labor','product','start_county','start_zone','date_start','namestart','telstart','destination_county','destination_zone','namedestination','teldestination'
         });
     }
 

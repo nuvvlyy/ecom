@@ -90,50 +90,66 @@
     @endif
 @else
     <div class="container">
+        <div class="row m-2">
+            <div class="col-5 border">
+                <form id="distance_form" action="/">
+                    <div class="form-group"><label>Origin: </label> <input class="form-control" id="from_places" placeholder="Enter a location" /> <input id="origin" name="origin" required="" type="hidden" /></div>
+                    <div class="form-group"><label>Destination: </label> <input class="form-control" id="to_places" placeholder="Enter a location" /> <input id="destination" name="destination" required="" type="hidden" /></div>
+                    <div class="form-group">
+                        <label for="type_car">ชนิดรถบรรทุก:</label>
+                        <select class="form-control" id="type" name="type">
+                            <option>กระบะ 4 ล้อหลังคาตู้ทึบควบคุมอุณหภูมิสินค้า</option>
+                            <option>กระบะ 4 ล้อตะแกรงเหล็ก</option>
+                            <option>กระบะ 4 ล้อหลังคาคู้ทึบ</option>
+                            <option>บรรทุก 6 ล้อคอนเทนเนอร์</option>
+                            <option>บรรทุก 6 ล้อตะแกรงไม้</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label>จำนวนรถ: </label> <input class="form-control" id="car_amount" name="car_amount" required="" type="number" min="1" value="1"/></div>
+
+                    <div class="container">
+                        <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/4-WHEELS-REEFER.png?fbclid=IwAR0Mz5lJ24KmscqkhpX3dcFew6FZh24EtulV2AHrbRzbCixLC5hISIVir7g" alt="car" width="150" height="100">
+                        <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/4-WHEELS-STALL.png" alt="car" width="150" height="100">
+                        <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/4-WHEELS-CABINET.png" alt="car" width="150" height="100">
+                        <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/6WHELL_CABINET.png" alt="car" width="150" height="100">
+                        <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/6WHELL_STALL.png" alt="car" width="150" height="100">
+                    </div>
+                    <div class="form-group"><label>แรงงานที่ใช้(คน): </label> <input class="form-control " id="man" name="man" required="" type="number" min="0" value="0"/></div>
+                    <div class="form-group"><label>ราคา: </label> <input class="form-control price" id="price" name="price" required="" type="number" disabled/></div>
+                    <div class="float">
+                        <input class="btn btn-primary " type="submit" value="Calculate"/></div>
+                </form>
+
+            </div>
+
+
+
+            </div>
+        </div>
+        <!--Grid column-->
+    </div>
+    <!--Grid row-->
+    <!--Grid row-->
+    </div>
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
-
                     <div class="card-body">
-                        <form method="POST" action="/People">
+                        <form  id="order_form" action="/People" method="POST">
                             @csrf
 
                             <div class="form-group row">
-                            <label for="cars" class="col-md-4 col-form-label text-md-right">{{ __('ประเภทรถขนส่ง') }}</label>
+                                <label for="labor" class="col-md-4 col-form-label text-md-right">{{ __('แรงงานยกสินค้า') }}</label>
                                 <div class="col-md-6">
-                                    <div class="cc-selector">
-                                        <input id="sfourwhell" type="radio" name="typewhell"  />
-                                        <label  class="drinkcard-cc sfourwhell" for="sfourwhell"></label>
-                                        <input id="ssixwhell" type="radio" name="typewhell"  />
-                                        <label class="drinkcard-cc ssixwhell"for="ssixwhell"></label>
-                                    </div>
-                                    <div  class="cc-selector typefourwhell">
-                                        <input id="fourwhell" type="radio" name="cars" value="TFO" />
-                                        <label class="drinkcard-cc fourwhell" for="fourwhell" ></label>
-                                        <input id="fourwhell-STALL" type="radio" name="cars" value="TFS" />
-                                        <label class="drinkcard-cc fourwhell-STALL"for="fourwhell-STALL"></label>
-                                    </div>
-                                    <div id="typesixwhell"class="cc-selector">
-                                        <input id="sixwhell" type="radio" name="cars"  value="TSO"  />
-                                        <label class="drinkcard-cc sixwhell" for="sixwhell"></label>
-                                        <input id="sixwhell-STALL" type="radio" name="cars"  value="TSS"  />
-                                        <label class="drinkcard-cc sixwhell-STALL"for="sixwhell-STALL"></label>
-                                    </div>
-
-                                    @if ($errors->has('cars'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('cars') }}</strong>
-                                    </span>
-                                    @endif
+                                    <input id="labor" style="width: 45px" type=text" class="labor form-control{{ $errors->has('labor') ? ' is-invalid' : '' }}" name="labor" value="0"  required disabled>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="labor" class="col-md-4 col-form-label text-md-right">{{ __('แรงงานยกสินค้า') }}</label>
-                                <input type="button" id="decrease" value="-" /> <input id="labor" style="width: 45px" type=text" class="form-control{{ $errors->has('labor') ? ' is-invalid' : '' }}" name="labor" value="0"  required>
-                                <input type="button" id="increase" value="+" />
+                                <label for="car" class="col-md-4 col-form-label text-md-right">{{ __('ชนิดรถบรรทุก') }}</label>
                                 <div class="col-md-6">
+                                    <input id="car"  type=text" class="car form-control{{ $errors->has('car') ? ' is-invalid' : '' }}" name="car" disabled required >
                                 </div>
                             </div>
 
@@ -145,7 +161,7 @@
                                         <option value="1" >สินค้ายานยนต์ เช่น น้ำมันใส น้ำมันเครื่อง ยางรถยนต์ แบตเตอรี่ และ อื่น ๆ</option>
                                         <option value="2" >สินค้าอาหาร และ เครื่องดื่ม (ไม่ต้องควบคุมอุณหภูมิ)</option>
                                         <option value="3" >สินค้าอาหาร และ เครื่องดื่ม (ควบคุมอุณหภูมิ)</option>
-                                        <option value="4">สินค้าเกษตร เช่น ข้าวสาร น้ำตาล แป้ง ยางพารา และ อื่น ๆ</option>
+                                        <option value="4">สินค้าเกษตร เช่น ข้าวสาร น้ำตาล แป้ง ยางพารา และ อื่น ๆ</option>PRIMARY
                                         <option value="5">สินค้าเคมีภัณฑ์ เช่น เม็ดพลาสติก</option>
                                         <option value="6">สสินค้าแร่ และ พลังงาน เช่น ถ่านหิน แร่ต่าง ๆ</option>
                                         <option value="7">สสินค้าวัสดุก่อสร้าง เช่น ปูน เหล็ก กระเบื้อง สุขภัณฑ์</option>
@@ -165,7 +181,7 @@
                             <div class="form-group row">
                                 <label for="start" class="col-md-4 col-form-label text-md-right">{{ __('ต้นทาง') }}<p>(กรุณาระบุจังหวัด และ อำเภอ)</p></label>
                                 <div class="col-md-6">
-                                    <input id="start" type="text" class="form-control" name="start" required>
+                                    <input id="start" type="text" class="form-control from_places" name="start" required disabled>
                                 </div>
                             </div>
 
@@ -179,21 +195,28 @@
                             <div class="form-group row">
                                 <label for="destination" class="col-md-4 col-form-label text-md-right">{{ __('ปลายทาง') }}<p>(กรุณาระบุจังหวัด และ อำเภอ)</p></label>
                                 <div class="col-md-6">
-                                    <input id="destination" type="text" class="form-control" name="destination" required>
+                                    <input id="destination" type="text" class="form-control to_places" name="destination" required disabled>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="ชื่อผู้ติดต่อ" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
                                 <div class="col-md-6">
-                                    <input id="namestart" type="text" class="form-control" name="namestart" required>
+                                    <input id="namedestination" type="text" class="form-control" name="namedestination" required>
                                 </div>
                             </div>
+                            {{--ราคา--}}
+                            <div class="form-group row">
+                                <label for="ราคา" class="col-md-4 col-form-label text-md-right">{{ __('ราคา') }}</label>
+                                <div class="col-md-6">
+                                    <input class="form-control price" id="price" name="price" required type="price" disabled/></div>
+
+                            </div>
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
+                                    <button class="btn btn-primary" type="submit" value="Submit">{{ __('submit') }}</button>
+
                                 </div>
                             </div>
 
@@ -206,7 +229,6 @@
     </div>
 
 
-
 @endguest
 
 
@@ -214,32 +236,163 @@
 
 @section('scripttype')
         <script >
-            $(document).ready( function() {
-                var elm = $('#labor');
-                function spin( vl ) {
-                    if(parseInt( elm.val(), 10 ) + vl <0){
-                        elm.val(0);
-                    }else
-                    elm.val( parseInt( elm.val(), 10 ) + vl );
+            // $(document).ready(function () {
+            //     $('.typefourwhell').hide();
+            //     $('#typesixwhell').hide();
+            //     $('#sfourwhell').click(function () {
+            //         $('.typefourwhell').show();
+            //         $('#typesixwhell').hide();
+            //     });
+            //     $('#ssixwhell').click(function () {
+            //         $('#typesixwhell').show();
+            //         $('.typefourwhell').hide();
+            //     });
+            //
+            // });
+            $(function () {
+                $('#order_form').submit(function () {
+                    $("input.price").attr("value", sessionStorage.getItem("get_price"));
+                    $("input.from_places").attr("value", sessionStorage.getItem("get_origin"));
+                    $(".to_places").attr("value", sessionStorage.getItem("get_destination"));
+                    alert("Submitted");
+                });
+            });
+            $(function() {
+                // add input listeners
+                google.maps.event.addDomListener(window, 'load', function () {
+                    var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
+                    var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
+
+                    google.maps.event.addListener(from_places, 'place_changed', function () {
+                        var from_place = from_places.getPlace();
+                        var from_address = from_place.formatted_address;
+                        $('#origin').val(from_address);
+                    });
+
+                    google.maps.event.addListener(to_places, 'place_changed', function () {
+                        var to_place = to_places.getPlace();
+                        var to_address = to_place.formatted_address;
+                        $('#destination').val(to_address);
+                    });
+
+                });
+                // calculate distance
+                function calculateDistance() {
+                    var origin = $('#origin').val();
+                    var destination = $('#destination').val();
+                    var service = new google.maps.DistanceMatrixService();
+                    service.getDistanceMatrix(
+                        {
+                            origins: [origin],
+                            destinations: [destination],
+                            travelMode: google.maps.TravelMode.DRIVING,
+                            unitSystem: google.maps.UnitSystem.IMPERIAL, // miles and feet.
+                            // unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.
+                            avoidHighways: false,
+                            avoidTolls: false
+                        }, callback);
                 }
+                // get distance results
+                function callback(response, status) {
+                    if (status != google.maps.DistanceMatrixStatus.OK) {
+                        $('#result').html(err);
+                    } else {
+                        var origin = response.originAddresses[0];
+                        var destination = response.destinationAddresses[0];
+                        if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
+                            $('#result').html("Better get on a plane. There are no roads between "  + origin + " and " + destination);
+                        } else {
+                            var distance = response.rows[0].elements[0].distance;
+                            var duration = response.rows[0].elements[0].duration;
+                            console.log(response.rows[0].elements[0].distance);
+                            var distance_in_kilo = distance.value / 1000; // the kilom
+                            var distance_in_mile = distance.value / 1609.34; // the mile
+                            var type = $('#type').val();
+                            var man = $('#man').val();
+                            var duration_text = duration.text;
+                            var duration_value = duration.value;
+                            var price = (distance.value / 1000);
+                            var car_amount = $('#car_amount').val();
+                            $('#in_mile').text(distance_in_mile.toFixed(2)+" Miles");
 
-                $('#increase').click( function() { spin( 1 );  } );
-                $('#decrease').click( function() { spin( -1 ); } );
-            });
 
-            $(document).ready(function () {
-                $('.typefourwhell').hide();
-                $('#typesixwhell').hide();
-                $('#sfourwhell').click(function () {
-                    $('.typefourwhell').show();
-                    $('#typesixwhell').hide();
+
+                            $('#duration_text').text(duration_text);
+                            $('#from').text(origin);
+                            $('#to').text(destination);
+
+
+                            $('#in_kilo').text(distance_in_kilo.toFixed(2)+" กิโลเมตร");
+                            $('#type_cars').text(type);
+                            $('#man_amount').text(man + " คน");
+                            var price_multiplier = 0;
+                            var price_cars_type = 0;
+                            var price_man = man*400;
+                            if(distance_in_kilo>=701){
+                                price_multiplier=9;
+                            }else if(distance_in_kilo>=501){
+                                price_multiplier=10;
+                            }else if(distance_in_kilo>=101){
+                                price_multiplier=11;
+                            }else if(distance_in_kilo>=51){
+                                price_multiplier=13;
+                            }else if(distance_in_kilo>=31){
+                                price_multiplier=17;
+                            }else{
+                                price_multiplier=19;
+                            }
+                            if($('#type').val() == "กระบะ 4 ล้อหลังคาตู้ทึบควบคุมอุณหภูมิสินค้า"){
+                                price_cars_type = 850;
+                            }else if($('#type').val() == "กระบะ 4 ล้อตะแกรงเหล็ก"){
+                                price_cars_type = 240;
+                            }else if($('#type').val() == "กระบะ 4 ล้อหลังคาคู้ทึบ"){
+                                price_cars_type = 240;
+                            }else if($('#type').val() == "บรรทุก 6 ล้อคอนเทนเนอร์"){
+                                price_cars_type = 1000;
+                            }else{
+                                price_cars_type = 1000;
+                            }
+                            var car_multi = price_cars_type*car_amount;
+                            price = (price*price_multiplier)+car_multi+price_man;
+                            $('#price').text(price.toFixed(2)+" Bath");
+
+                            sessionStorage.setItem("get_price", price);
+                            sessionStorage.setItem("get_cars_type", type);
+                            sessionStorage.setItem("get_man_amount", man);
+                            sessionStorage.setItem("get_destination", destination);
+                            sessionStorage.setItem("get_origin", origin);
+                            sessionStorage.setItem("get_origin", origin);
+                            sessionStorage.setItem("get_distance_in_kilo", distance_in_kilo);
+                            sessionStorage.setItem("get_distance_in_mile", distance_in_mile);
+                            sessionStorage.setItem("get_duration_text", duration_text);
+                            sessionStorage.setItem("get_car_amount", car_amount);
+
+                            var temp=ss_form_type;
+                            $("#type").val(temp)
+                            $('.labor').attr("value", man);
+                            document.getElementsByName("car").value = type;
+                        }
+                    }
+                }
+                // print results on submit the form
+                $('#distance_form').submit(function(e){
+                    e.preventDefault();
+                    calculateDistance();
                 });
-                $('#ssixwhell').click(function () {
-                    $('#typesixwhell').show();
-                    $('.typefourwhell').hide();
-                });
+
 
             });
+            function initialize() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(13.818858, 100.043335),
+                    zoom: 12
+                };
+                var map = new google.maps.Map(document.getElementById("map-canvas"),
+                    mapOptions);
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
 
     </script>
 @endsection
