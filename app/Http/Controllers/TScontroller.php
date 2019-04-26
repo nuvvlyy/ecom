@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\creditcard;
+use App\status;
 use Illuminate\Http\Request;
 use  App\order;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use DB;
 class TScontroller extends Controller
 {
 
@@ -89,38 +91,87 @@ class TScontroller extends Controller
      * @param Request $request
      */
 
-    public function type_car($car){
-        $car1='กระบะ 4 ล้อตะแกรงเหล็ก';
-        $car2='กระบะ 4 ล้อหลังคาคู้ทึบ';
-        $car3='บรรทุก 6 ล้อคอนเทนเนอร์';
-         $car4='บรรทุก 6 ล้อตะแกรงไม้';
-         if($car1===$car){
-             return 'FI';
-         }else if($car===$car2){
-             return 'FR';
-         }else if($car===$car3){
-             return 'ST';
-         }else{
-             return 'FW';
-         }
+    public function id($id){
+            if($id>9){
+                return '0'.$id;
+            }else{
+                return $id;
+            }
     }
+
     public function postOrder(Request $request){
         $order = [
-            'order_id'=>'FER0'.abs( crc32( uniqid() ) ),
+            'order_id'=>'0'.$this->id(Auth::user()->id) .abs( crc32( uniqid() ) ),
             'user_id' => Auth::user()->id ,
-            'car' =>  '1',
             'labor' =>  $request->labor,
             'product' =>  $request->product,
-            'start' =>  $request->start,
+            'start_county' =>  $request->start_county,
+            'start_zone' =>  $request->start_zone,
+            'date_start' =>  $request->date_start,
             'namestart' =>  $request->namestart,
-            'destination' =>   $request->destination,
+            'telstart' =>  $request->telstart,
+            'destination_county' =>   $request->destination_county,
+            'destination_zone' =>   $request->destination_zone,
             'namedestination' =>  $request->namedestination,
-            'price' => $request->price
+            'teldestination' => $request->teldestination,
+            'weight' => $request->weight,
+            'wide' => $request->wide,
+            'long' => $request->long,
+            'high' => $request->high
+
             ,];
+        // 'weight','wide','long','high'
+        //'labor','product','start_county','start_zone','date_start','namestart','telstart','destination_county','destination_zone','namedestination','teldestination'
         order::create($order);
-        echo 'happy';
+
+        $status = [
+            'user_id' =>  Auth::user()->id ,
+            'track_id' => 'LG'.abs( crc32( uniqid() ) ),
+            'order_id' => $order['order_id'],
+            'status' =>   'รอดำเนินการ',
+            'car' => '-',
+            'start' => $request->start_zone.','.$request->start_county,
+            'destination' => $request->destination_zone.','.$request->destination_county,
+        ];
+        status::create($status);
+        return redirect('/shipment');
      ;
     }
+
+    public function showushipment(){
+        if(empty((Auth::user()->id ))){
+            return view('auth/login');
+        }
+        $status  = status::where('user_id',Auth::user()->id)
+                    ->get();
+        return view('shipment')
+            ->with('status',$status);
+    }
+    public function check(){
+        $credit  = creditcard::where('user_id',Auth::user()->id)
+            ->count();
+        if ($credit != 0 ) {
+            DB::table('status')
+                ->where('user_id',Auth::user()->id)
+                ->update(['status' => 'กำลังจัดส่ง']);
+        }
+        else  {
+            return view('payment') ;
+        }
+    }
+    public function addcredit(Request $request){
+        $credit = [
+            'user_id' => Auth::user()->id ,
+            'credit_id' => $request->creditID,
+            'exp_date'=>   $request->cc_exp_mo.'/'.$request->cc_exp_yr,
+            'cvv' =>  $request->cvv,
+            'name' =>  $request->name,
+            'lastname'=>  $request->lastname
+            ,];
+        creditcard::create($credit);
+    }
+
+
 
     /**
      *

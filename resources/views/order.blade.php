@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
 
-    <form>
-
+    <form method="POST" action="/People">
+        @csrf
     <div class="form-group row">
         <label for="labor" class="col-md-4 col-form-label text-md-right">{{ __('แรงงานยกสินค้า') }}</label>
         <div class="col-md-6">
@@ -50,17 +50,19 @@
         </div>
 
     <div class="form-group row">
-        <label for="ชื่อผู้ติดต่อ" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
+        <label for="namestart" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
         <div class="col-md-6">
-            <input id="telstart" type="text" class="form-control" name="telstart" required>
+            <input id="namestart" type="text" class="form-control" name="namestart" required>
         </div>
     </div>
+
         <div class="form-group row">
-            <label for="date_start" class="col-md-4 col-form-label text-md-right">{{ __('วันที่') }}</label>
+            <label for="telstart" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
             <div class="col-md-6">
-                <input id="date_start" type="date" class="form-control" name="date_start" required>
+                <input id="telstart" type="text" class="form-control" name="telstart" required>
             </div>
         </div>
+
 
     <div class="form-group row">
 
@@ -74,17 +76,42 @@
         </div>
 
     <div class="form-group row">
-        <label for="ชteldestination" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
+        <label for="namedestination" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
         <div class="col-md-6">
-            <input id="teldestination" type="text" class="form-control" name="teldestination" required>
+            <input id="namedestination" type="text" class="form-control" name="namedestination" required>
         </div>
     </div>
+        <div class="form-group row">
+            <label for="teldestination" class="col-md-4 col-form-label text-md-right">{{ __('โทรศัพท์ชื่อผู้ติดต่อ') }}</label>
+            <div class="col-md-6">
+                <input id="teldestination" type="text" class="form-control" name="teldestination" required>
+            </div>
+        </div>
         <div class="form-group row">
             <label for="date_start" class="col-md-4 col-form-label text-md-right">{{ __('วันที่') }}</label>
             <div class="col-md-6">
                 <input id="date_start" type="date" class="form-control" name="date_start" required>
             </div>
         </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label for="weight" class="col-md-6 col-form-label text-md-right">{{ __('น้ำหนัก') }}</label>
+                <input id="weight" type="text" class="form-control" name="weight" required>
+            </div>
+            <div class="col-md-3">
+                <label for="wide" class="col-md-6 col-form-label text-md-right">{{ __('กว้าง') }}</label>
+                <input id="wide" type="text" class="form-control" name="wide" required>
+            </div>
+            <div class="col-md-3">
+                <label for="long" class="col-md-6 col-form-label text-md-right">{{ __('ยาว') }}</label>
+                <input id="long" type="text" class="form-control" name="long" required>
+            </div>
+            <div class="col-md-3">
+                <label for="high" class="col-md-6 col-form-label text-md-right">{{ __('สูง') }}</label>
+                <input id="high" type="text" class="form-control" name="high" required>
+            </div>
+        </div>
+         {{--'weight','wide','long','high'--}}
     <div class="form-group row mb-0">
         <div class="col-md-6 offset-md-4">
             <button class="btn btn-primary" type="submit" value="Submit">{{ __('submit') }}</button>

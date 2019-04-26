@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use  App\company;
 
 class RegisterController extends Controller
 {
@@ -63,10 +65,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $company =[
+            'user_id' => $data['name'] ,
+            'nameoforcompany'=>$data['nameoforcompany'],
+            'idoftax' => $data['idoftax'],
+            'field' =>  $data['field'],
+            'addressofcom' =>  $data['addressofcom'],
+            'zipcode' =>  $data['zipcode'],
+            'country' =>  $data['country'],
+            'city' =>   $data['city'],
+            'zone' =>  $data['zone'],
+            'tel' => $data['tel']
+
+            ,];
+        company::create($company);
+        //'user_id','nameoforcompany','idoftax','field','addressofcom','zipcode','country','city','zone','tel'
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'type'=>'2',
         ]);
     }
 }

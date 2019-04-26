@@ -27,6 +27,10 @@ class CreateOrdersTable extends Migration
             $table->string('destination_zone');
             $table->string('namedestination');
             $table->string('teldestination');
+            $table->string('weight');
+            $table->string('wide');
+            $table->string('long');
+            $table->string('high');
             $table->timestamps();
             //'labor','product','start_county','start_zone','date_start','namestart','telstart','destination_county','destination_zone','namedestination','teldestination'
         });

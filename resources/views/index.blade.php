@@ -52,15 +52,21 @@
             {{--</div>--}}
             <div class="site-section">
                 <div class="container">
+                    <div class="row ">
+                        <div class="col align-self-center text-center">
+                        <h4 class="mb-0">ตรวจสอบค่าจัดส่ง</h4>
+                        <p>*ค่าจัดส่งดังกล่าวเป็นการคำนวนโดยประมาณ อาจจะมีค่าใช้จ่ายเพิ่มเติมตามความเหมาะสม</p>
+                        </div>
+                    </div>
+
                     <div class="row m-2">
-                        <div class="col-5 border">
+                        <div class="col-5 borde-dark mb-3">
                             <form id="distance_form">
                                 <div class="form-group"><label>Origin: </label> <input class="form-control" id="from_places" placeholder="Enter a location" /> <input id="origin" name="origin" required="" type="hidden" /></div>
                                 <div class="form-group"><label>Destination: </label> <input class="form-control" id="to_places" placeholder="Enter a location" /> <input id="destination" name="destination" required="" type="hidden" /></div>
                                 <div class="form-group">
                                     <label for="type_car">ชนิดรถบรรทุก:</label>
                                     <select class="form-control" id="type" name="type">
-                                        <option>กระบะ 4 ล้อหลังคาตู้ทึบควบคุมอุณหภูมิสินค้า</option>
                                         <option>กระบะ 4 ล้อตะแกรงเหล็ก</option>
                                         <option>กระบะ 4 ล้อหลังคาคู้ทึบ</option>
                                         <option>บรรทุก 6 ล้อคอนเทนเนอร์</option>
@@ -68,18 +74,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group"><label>จำนวนรถ: </label> <input class="form-control" id="car_amount" name="car_amount" required="" type="number" min="1" value="1"/></div>
-
-                                <div class="container">
-                                    <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/4-WHEELS-REEFER.png?fbclid=IwAR0Mz5lJ24KmscqkhpX3dcFew6FZh24EtulV2AHrbRzbCixLC5hISIVir7g" alt="car" width="150" height="100">
-                                    <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/4-WHEELS-STALL.png" alt="car" width="150" height="100">
-                                    <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/4-WHEELS-CABINET.png" alt="car" width="150" height="100">
-                                    <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/6WHELL_CABINET.png" alt="car" width="150" height="100">
-                                    <img class="img-responsive" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/6WHELL_STALL.png" alt="car" width="150" height="100">
-                                </div>
                                 <div class="form-group"><label>แรงงานที่ใช้(คน): </label> <input class="form-control" id="man" name="man" required="" type="number" min="0" value="0"/></div>
                                 <div class="float"><input class="btn btn-primary" type="submit" value="Calculate"/></div></form>
                         </div>
-                        <div class="col-5 ">
+                        <div class="col-4 ">
 
                             <div id="result" class="w-100" >
                                 <div action="post">
@@ -121,6 +119,7 @@
 
 
                     </div>
+
                 </div>
                 <!--Grid column-->
             </div>
