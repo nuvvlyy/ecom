@@ -51,10 +51,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">{{ __('pricing') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home">{{ __('pricing') }}</a>
+                            <a class="nav-link" href="/purchase">{{ __('purchase') }}</a>
                         </li>
                         <!-- Authentication Links -->
 

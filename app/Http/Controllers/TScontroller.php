@@ -15,10 +15,10 @@ class TScontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-
-    }
+//    public function index()
+//    {
+//
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,9 +47,10 @@ class TScontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $order = order::all();
+        return view('showall')->with('order',$order);
     }
 
     /**
@@ -117,8 +118,8 @@ class TScontroller extends Controller
             'weight' => $request->weight,
             'wide' => $request->wide,
             'long' => $request->long,
-            'high' => $request->high
-
+            'high' => $request->high,
+            'price' => '0'
             ,];
         // 'weight','wide','long','high'
         //'labor','product','start_county','start_zone','date_start','namestart','telstart','destination_county','destination_zone','namedestination','teldestination'
@@ -154,9 +155,11 @@ class TScontroller extends Controller
             DB::table('status')
                 ->where('user_id',Auth::user()->id)
                 ->update(['status' => 'กำลังจัดส่ง']);
+            return redirect('/finish');
         }
         else  {
-            return view('payment') ;
+
+            return redirect('/payment');
         }
     }
     public function addcredit(Request $request){
@@ -169,11 +172,73 @@ class TScontroller extends Controller
             'lastname'=>  $request->lastname
             ,];
         creditcard::create($credit);
+        return redirect('/shipment');
+    }
+    function index()
+    {
+        $data = DB::table('orders')
+            ->select(
+                DB::raw('product as product'),
+                DB::raw('count(*) as number'))
+            ->groupBy('product')
+            ->get();
+        $array[] = ['product', 'number'];
+        foreach($data as $key => $value)
+        {
+            $array[++$key] = [$value->product, $value->number];
+        }
+        return view('showG')
+            ->with('product', json_encode($array));
     }
 
+    function index01()
+    {
+        $data = DB::table('orders')
+            ->select(
+                DB::raw('destination_county as destination_county'),
+                DB::raw('count(*) as number'))
+            ->groupBy('destination_county')
+            ->get();
+        $array[] = ['destination_county', 'number'];
+        foreach($data as $key => $value)
+        {
+            $array[++$key] = [$value->destination_county, $value->number];
+        }
+        return view('showGT')
+            ->with('destination_county', json_encode($array));
+    }
+    public function showstatus(){
+        $status  = status::all();
+        return view('showstatusall')
+            ->with('status',$status);
+    }
+    function index02()
+    {
+        $data = DB::table('status')
+            ->select(
+                DB::raw('status as status'),
+                DB::raw('count(*) as number'))
+            ->groupBy('status')
+            ->get();
+        $array[] = ['status', 'number'];
+        foreach($data as $key => $value)
+        {
+            $array[++$key] = [$value->status, $value->number];
+        }
+        return view('showstatusg')
+            ->with('status', json_encode($array));
+    }
 
+    public function updateorder(Request $request){
+        $order  =DB::table('orders')->where('order_id',$request-> order_id)->update(array(
+            'order_id' =>  $request->order_id,
+            'user_id' =>$request->user_id,
+            'car' =>  $request->type,
+            'price' => $request->price,
+        ));
+    }
 
-    /**
+                /**
      *
      */
 

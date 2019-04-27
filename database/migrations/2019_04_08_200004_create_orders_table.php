@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->string('order_id');
             $table->string('user_id');
+            $table->string('car');
             $table->string('labor');
             $table->string('product');
             $table->string('start_county');
@@ -31,6 +32,7 @@ class CreateOrdersTable extends Migration
             $table->string('wide');
             $table->string('long');
             $table->string('high');
+            $table->float('price');
             $table->timestamps();
             //'labor','product','start_county','start_zone','date_start','namestart','telstart','destination_county','destination_zone','namedestination','teldestination'
         });

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card" style="margin-top: 30px;">
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
@@ -61,15 +61,28 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                            <div class="container" style="margin-top: 50px">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <div class="card" style="margin-bottom: 60px">
+                                            <div class="card-header">{{ __('company information') }}</div>
+
+                                            <div class="card-body">
                             <div class="form-group form-row">
                                 <div class="form-group col-md-5">
                                     <label for="nameoforcompany" class="col-md-4 col-form-label text-md-left">{{ __('ชื่อบริษัท') }}</label>
-                                    <input id="nameoforcompany"  type=text" class="labor form-control{{ $errors->has('nameoforcompany') ? ' is-invalid' : '' }}" name="nameoforcompany" value="0"  required >
+                                    <input id="nameoforcompany"  type=text" class="labor form-control{{ $errors->has('nameoforcompany') ? ' is-invalid' : '' }}" name="nameoforcompany" required >
 
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="idoftax" class="col-md-10 col-form-label text-md-left">{{ __('เลขประจำตัวผู้เสียภาษีอากร') }}</label>
-                                    <input id="idoftax"  type="text" class="labor form-control{{ $errors->has('idoftax') ? ' is-invalid' : '' }}" name="idoftax" value="0"  required >
+                                    <label for="idoftax" class="col-md-12 col-form-label text-md-left">{{ __('เลขประจำตัวผู้เสียภาษีอากร') }}</label>
+                                    <input id="idoftax"  type="text" class="labor form-control{{ $errors->has('idoftax') ? ' is-invalid' : '' }}" name="idoftax"  required >
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="field" class="col-md-10 col-form-label text-md-left">{{ __('สาขา') }}</label>

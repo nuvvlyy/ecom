@@ -50,8 +50,8 @@
             {{--<div class="col-md-12 text-center">--}}
                 {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>--}}
             {{--</div>--}}
-            <div class="site-section">
-                <div class="container">
+            <div class="site-section" id="cal">
+                <c class="container">
                     <div class="row ">
                         <div class="col align-self-center text-center">
                         <h4 class="mb-0">ตรวจสอบค่าจัดส่ง</h4>
@@ -111,317 +111,25 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class=" text-right">
-                            <a type="button" class="btn btn-secondary" href="/home">สนใจใช้บริการ</a>
                             </div>
+                            <br>
+                            {{--<a style="align-content:right; " type="button" class="btn btn-primary" href="/service"> สนใจใช้บริการ</a>--}}
                         </div>
 
 
 
-                    </div>
 
-                </div>
+                    </div>
+                    <center><a style="align-content:right; " class="btn btn-primary" href="/service"> สนใจใช้บริการ</a>
+                    </center>
+            </div>
                 <!--Grid column-->
             </div>
             <!--Grid row-->
         <!--Grid row-->
-    </div>
-        <div class="container" id="cal">
-
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-4 align-items-center" style="margin-bottom:100px; ">
-                    <div class="btn-group" role="group" style="margin-left:100px; ">
-                        <button type="button" id="btnfourwheel" class=" btn btn-primary ">4 ล้อ</button>
-                        <button type="button" id="btnsixwheel" class=" btn btn-primary ">6 ล้อ</button>
-                    </div>
-                </div>
-                <div class="col-5"></div>
             </div>
         </div>
-    <div class="container"  id="cal">
-        <!--4 wheel-->
-        <div class="row" style="margin-top: 60px">
-            <div class="col-4 white-text text-center wheel-4" style="width: 10px;">
-                <img class="card-img-top" style="margin-top: -100px ;margin-left:45px;width: 240px;height: 160px;" src="https://s3-ap-southeast-1.amazonaws.com/appmedia.giztix.com/upload/setting_truck/4-WHEELS-CABINET.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">รถ 4 ล้อตู้ทึบ</h5>
-                    <p class="card-text">ขนาด 150x175x(น้อยกว่า 250) ซม.
-                        น้ำหนักบรรทุกสูงสุด 1.5 ตัน</p>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่งต่อเที่ยว</div>
-                        <div class ="col-4 text-right">240 บาท</div>
-                    </div>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่งขั้นต่ำ</div>
-                        <div class ="col-4 text-right">600 บาท</div>
-                    </div>
-                    <div class ="row">
-                        <div class ="col-8 text-left">288 กม.ขึ้นไป ส่วนลด</div>
-                        <div class ="col-4 text-right">10%</div>
-                    </div>
-                    <div class ="row" style="margin-top: 14px;">
-                        <div class ="col-8 text-left"><b>ระยะทาง(กม.)</b></div>
-                        <div class ="col-4 text-right"><b>ราคา ต่อ กม.</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">0 - 30</div>
-                        <div class ="col-4 text-right"><b>20 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
 
-                    <div class ="row">
-                        <div class ="col-8 text-left">31 - 51</div>
-                        <div class ="col-4 text-right"><b>17 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row" style="margin-top: 0px;">
-                        <div class ="col-8 text-left">51 - 100</div>
-                        <div class ="col-4 text-right"><b>14 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">101 - 500</div>
-                        <div class ="col-4 text-right"><b>12 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">501 - 700</div>
-                        <div class ="col-4 text-right"><b>11 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">701 ขึ้นไป</div>
-                        <div class ="col-4 text-right"><b>10 บาท</b> </div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="col-4 white-text text-center wheel-4" style="width: 18rem;">
-                <img class="card-img-top" style="margin-top: -100px ;margin-left:45px;width: 240px;height: 160px;"src="https://www.giztix.com/static/media/03-PICKUP_STALL.7ae77d16.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">รถ 4 ล้อตู้ทึบ</h5>
-                    <p class="card-text">ขนาด 150x175x(น้อยกว่า 250) ซม.
-                        น้ำหนักบรรทุกสูงสุด 1.5 ตัน</p>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่งต่อเที่ยว</div>
-                        <div class ="col-4 text-right">240 บาท</div>
-                    </div>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่งขั้นต่ำ</div>
-                        <div class ="col-4 text-right">600 บาท</div>
-                    </div>
-                    <div class ="row">
-                        <div class ="col-8 text-left">288 กม.ขึ้นไป ส่วนลด</div>
-                        <div class ="col-4 text-right">10%</div>
-                    </div>
-                    <div class ="row" style="margin-top: 14px;">
-                        <div class ="col-8 text-left"><b>ระยะทาง(กม.)</b></div>
-                        <div class ="col-4 text-right"><b>ราคา ต่อ กม.</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">0 - 30</div>
-                        <div class ="col-4 text-right"><b>19 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">31 - 51</div>
-                        <div class ="col-4 text-right"><b>17 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">51 - 100</div>
-                        <div class ="col-4 text-right"><b>17 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">101 - 500</div>
-                        <div class ="col-4 text-right"><b>11 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">501 - 700</div>
-                        <div class ="col-4 text-right"><b>10 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">701 ขึ้นไป</div>
-                        <div class ="col-4 text-right"><b>9 บาท</b> </div>
-                    </div>
-                    <hr>
-                </div>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="col-4 white-text text-left wheel-4" style="width: 18rem;">
-                <h3>เงื่อนไขการใช้บริการ</h3>
-                <b>เงื่อนไขราคา</b><br>
-                1. ราคาดังกล่าวไม่รวมค่าจอดรถ<br>
-                2. ไม่รวมค่าเข้าสนามบิน/ท่าเรือ<br>
-                3. ไม่รวมข้ามเกาะ และ 3 จังหวัด ดังต่อไปนี้ ยะลา ปัตตานี นราธิวาส
-
-            </div>
-        </div>
-        <!--4 wheel-->
-        <!--6 wheel-->
-
-        <div class="row"  style="margin-top: 60px">
-
-            <div class="col-4 white-text text-center wheel-6" style="width: 10px;">
-                <img class="card-img-top" style="margin-top: -100px ;margin-left:45px;width: 240px;height: 160px;" src="https://www.giztix.com/static/media/03-6WHEELS_STALL.3da52ca2.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">รถ 6 ล้อตู้คอก 6.5 เมตร</h5>
-                    <p class="card-text">ขนาด 240x650x(น้อยกว่า 300) ซม.
-                        น้ำหนักบรรทุกสูงสุด 6 ตัน</p>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่ง 4,500 ขึ้นไปรับส่วนลด</div>
-                        <div class ="col-4 text-right">1,000 บาท</div>
-                    </div>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่งขั้นต่ำ</div>
-                        <div class ="col-4 text-right">2,700 บาท</div>
-                    </div>
-
-                    <div class ="row" style="margin-top: 14px;">
-                        <div class ="col-8 text-left"><b>ระยะทาง(กม.)</b></div>
-                        <div class ="col-4 text-right"><b>ราคา ต่อ กม.</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">0 - 40</div>
-                        <div class ="col-4 text-right"><b>52 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">41 - 100</div>
-                        <div class ="col-4 text-right"><b>40 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">101 - 200</div>
-                        <div class ="col-4 text-right"><b>29 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row" style="margin-top: 0px;">
-                        <div class ="col-8 text-left">201 - 300</div>
-                        <div class ="col-4 text-right"><b>20 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">301 - 400</div>
-                        <div class ="col-4 text-right"><b>20 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">401 - 700</div>
-                        <div class ="col-4 text-right"><b>18 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">701 ขึ้นไป</div>
-                        <div class ="col-4 text-right"><b>16 บาท</b> </div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="col-4 white-text text-center wheel-6" style="width: 18rem;">
-                <img class="card-img-top" style="margin-top: -100px ;margin-left:45px;width: 240px;height: 160px;"src="https://www.giztix.com/static/media/01-6WHEELS_CABINET.2fdc95ff.png" alt="Card image cap">
-
-                <div class="card-body">
-                    <h5 class="card-title">รถ 6 ล้อตู้ทึบ 6.5 เมตร</h5>
-                    <p class="card-text">ขนาด 240x650x(น้อยกว่า 300) ซม.
-                        น้ำหนักบรรทุกสูงสุด 6 ตัน</p>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่ง 4,500 ขึ้นไปรับส่วนลด</div>
-                        <div class ="col-4 text-right">1,000 บาท</div>
-                    </div>
-                    <div class ="row">
-                        <div class ="col-8 text-left">ค่าบริการขนส่งขั้นต่ำ</div>
-                        <div class ="col-4 text-right">2,850 บาท</div>
-                    </div>
-
-                    <div class ="row" style="margin-top: 14px;">
-                        <div class ="col-8 text-left"><b>ระยะทาง(กม.)</b></div>
-                        <div class ="col-4 text-right"><b>ราคา ต่อ กม.</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">0 - 40</div>
-                        <div class ="col-4 text-right"><b>52 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">41 - 100</div>
-                        <div class ="col-4 text-right"><b>40 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">101 - 200</div>
-                        <div class ="col-4 text-right"><b>29 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row" style="margin-top: 0px;">
-                        <div class ="col-8 text-left">201 - 300</div>
-                        <div class ="col-4 text-right"><b>20 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-                    <div class ="row">
-                        <div class ="col-8 text-left">301 - 400</div>
-                        <div class ="col-4 text-right"><b>20 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">401 - 700</div>
-                        <div class ="col-4 text-right"><b>18 บาท</b> </div>
-                    </div>
-                    <hr style="margin-top: 10px;padding-bottom: 0px">
-
-                    <div class ="row">
-                        <div class ="col-8 text-left">701 ขึ้นไป</div>
-                        <div class ="col-4 text-right"><b>16 บาท</b> </div>
-                    </div>
-                    <hr>
-
-                </div>
-            </div>
-            <div class="col-4 white-text text-left wheel-6" style="width: 18rem;">
-                <h3>เงื่อนไขการใช้บริการ</h3>
-                <b>เงื่อนไขราคา</b><br>
-                เวลาเข้ารับสินค้าไม่จำกัดช่วงเวลา แต่ต้องทำการจองล่วงหน้า เช่น <br>
-                - ต้องการให้รถเข้ารับสินค้าวันที่ 10 เวลา 07.00 ต้องทำการจอง<br>ภายในวันที่ 9 ก่อนเวลา 15.00<br>
-                - หากทำการจองวันที่ 9 หลังเวลา 15.01 จะเข้ารับสินค้าได้เร็วสุด<br>
-                วันที่ 11 เวลา 00.01<br>
-                เงื่อนไขราคา <br>
-                1. ราคาดังกล่าวไม่รวมค่าจอดรถ<br>
-                2. ไม่รวมค่าเข้าสนามบิน/ท่าเรือ<br>
-                3. ไม่รวมข้ามเกาะ และ 3 จังหวัด ดังต่อไปนี้ ยะลา ปัตตานี นราธิวาส<br>
-
-            </div>
-
-        </div>
-        <!--6 wheel-->
-
-    </div>
-
-    </div>
-    </div>
 </main>
 <!--Main Layout-->
 @endsection

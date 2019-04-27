@@ -97,7 +97,6 @@
                 <th>ต้นทาง</th>
                 <th>ปลายทาง</th>
                 <th>หมายเหตุ</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -111,12 +110,14 @@
                     <td>{{$s['order_id']}}</td>
                     <td>{{$s['status']}}</td>
                     <td>{{$s['start']}}</td>
-                    <td>{{$s['destination']}}</td>
-                    <td>{{$s['status']}}</td>
+                    <td>{{$s['destination']}}</td><td>
                     @if ($s->status === "รอดำเนินการ")
-                        <td><a href="/payment">จ่ายเงิน</a></td>
-                    @endif
+                        <a class="btn btn-dark" href="/payment">จ่ายเงิน</a>
+
+                    @else
+                         <button class="btn btn-dark" disabled>จ่ายเงิน</button>
                     </td>
+                    @endif
                 </tr>
             @endforeach
             @endif

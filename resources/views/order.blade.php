@@ -1,126 +1,110 @@
 @extends('layouts.app')
 @section('content')
+    <div class="container" style="margin-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card" style="padding-right:30px; padding-left:30px; padding-bottom:30px;">
+                    <h4 style="margin-top: 30px;"><b>ใบเสนอราคา</b></h4>
+                    <div class="card-body">
+                        <form method="POST" action="/People">
+                            @csrf
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <label for="wide" class="col-md-12 col-form-label text-md-right">{{ __('แรงงานยกสินค้า') }}</label>
+                                    <input id="wide" type="text" class="form-control" name="wide" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="product" class="col-md-10 col-form-label text-md-right" >{{ __('ประเภทสินค้า ') }}</label>
+                                    <select class="form-control " name="product" id="product" required>
+                                        <option selected disabled >โปรดเลือก</option>
+                                        <option value="1" >สินค้ายานยนต์ เช่น น้ำมันใส น้ำมันเครื่อง ยางรถยนต์ แบตเตอรี่ และ อื่น ๆ</option>
+                                        <option value="2" >สินค้าอาหาร และ เครื่องดื่ม (ไม่ต้องควบคุมอุณหภูมิ)</option>
+                                        <option value="3" >สินค้าอาหาร และ เครื่องดื่ม (ควบคุมอุณหภูมิ)</option>
+                                        <option value="4">สินค้าเกษตร เช่น ข้าวสาร น้ำตาล แป้ง ยางพารา และ อื่น ๆ</option>PRIMARY
+                                        <option value="5">สินค้าเคมีภัณฑ์ เช่น เม็ดพลาสติก</option>
+                                        <option value="6">สสินค้าแร่ และ พลังงาน เช่น ถ่านหิน แร่ต่าง ๆ</option>
+                                        <option value="7">สสินค้าวัสดุก่อสร้าง เช่น ปูน เหล็ก กระเบื้อง สุขภัณฑ์</option>
+                                        <option value="8">สินค้าเกษตร เช่น ข้าวสาร น้ำตาล แป้ง ยางพารา และ อื่น ๆ</option>
+                                        <option value="9">สสินค้ากระดาษ บรรจุภัณฑ์ เช่น กระดาษม้วน กระดาษลัง</option>
+                                        <option value="10">สินค้าอุปโภค บริโภค หรือ FMCG</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="wide" class="col-md-10 col-form-label text-md-left">วันที่ส่ง</label>
+                                    <input id="wide" type="date" class="form-control" name="wide" required>
+                                </div>
+                            </div>
 
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="wide" class="col-md-10 col-form-label text-md-left">{{ __('ต้นทาง') }}:อำเภอ</label>
+                            <input id="wide" type="text" class="form-control" name="wide" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="long" class="col-md-10 col-form-label text-md-left">{{ __('จังหวัด') }}</label>
+                            <input id="long" type="text" class="form-control" name="long" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="high" class="col-md-10 col-form-label text-md-left">{{ __('ชื่อผู้ติดต่อ') }}</label>
+                            <input id="high" type="text" class="form-control" name="high" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="weight" class="col-md-10 col-form-label text-md-left">{{ __('เบอร์โทรศัพท์') }}</label>
+                            <input id="weight" type="text" class="form-control" name="weight" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="wide" class="col-md-12 col-form-label text-md-left">{{ __('ปลายทาง') }}:อำเภอ</label>
+                            <input id="wide" type="text" class="form-control" name="wide" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="long" class="col-md-10 col-form-label text-md-left">{{ __('จังหวัด') }}</label>
+                            <input id="long" type="text" class="form-control" name="long" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="high" class="col-md-10 col-form-label text-md-left">{{ __('ชื่อผู้ติดต่อ') }}</label>
+                            <input id="high" type="text" class="form-control" name="high" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="weight" class="col-md-10 col-form-label text-md-left">{{ __('เบอร์โทรศัพท์') }}</label>
+                            <input id="weight" type="text" class="form-control" name="weight" required>
+                        </div>
+                    </div>        <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="weight" class="col-md-10 col-form-label text-md-right">{{ __('น้ำหนัก') }}</label>
+                            <input id="weight" type="text" class="form-control" name="weight" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="wide" class="col-md-6 col-form-label text-md-right">{{ __('กว้าง') }}</label>
+                            <input id="wide" type="text" class="form-control" name="wide" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="long" class="col-md-6 col-form-label text-md-right">{{ __('ยาว') }}</label>
+                            <input id="long" type="text" class="form-control" name="long" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="high" class="col-md-6 col-form-label text-md-right">{{ __('สูง') }}</label>
+                            <input id="high" type="text" class="form-control" name="high" required>
+                        </div>
+                    </div>
+                    {{--'weight','wide','long','high'--}}
+                    {{--submit--}}
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button class="btn btn-primary" type="submit" value="Submit">{{ __('submit') }}</button>
 
-    <div class="container">
-        <div class="row">
-
-    <form method="POST" action="/People">
-        @csrf
-    <div class="form-group row">
-        <label for="labor" class="col-md-4 col-form-label text-md-right">{{ __('แรงงานยกสินค้า') }}</label>
-        <div class="col-md-6">
-            <input id="labor" style="width: 60px" type="number" class="labor form-control{{ $errors->has('labor') ? ' is-invalid' : '' }}" name="labor" value="0"  required >
+                        </div>
+                    </div>
+                    {{--submit--}}
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="form-group row">
-        <label for="product" class="col-md-4 col-form-label text-md-right">{{ __('ประเภทสินค้า ') }}</label>
-        <div class="col-md-6">
-            <select class="form-control" name="product" id="product" required>
-                <option selected disabled >โปรดเลือก</option>
-                <option value="1" >สินค้ายานยนต์ เช่น น้ำมันใส น้ำมันเครื่อง ยางรถยนต์ แบตเตอรี่ และ อื่น ๆ</option>
-                <option value="2" >สินค้าอาหาร และ เครื่องดื่ม (ไม่ต้องควบคุมอุณหภูมิ)</option>
-                <option value="3" >สินค้าอาหาร และ เครื่องดื่ม (ควบคุมอุณหภูมิ)</option>
-                <option value="4">สินค้าเกษตร เช่น ข้าวสาร น้ำตาล แป้ง ยางพารา และ อื่น ๆ</option>PRIMARY
-                <option value="5">สินค้าเคมีภัณฑ์ เช่น เม็ดพลาสติก</option>
-                <option value="6">สสินค้าแร่ และ พลังงาน เช่น ถ่านหิน แร่ต่าง ๆ</option>
-                <option value="7">สสินค้าวัสดุก่อสร้าง เช่น ปูน เหล็ก กระเบื้อง สุขภัณฑ์</option>
-                <option value="8">สินค้าเกษตร เช่น ข้าวสาร น้ำตาล แป้ง ยางพารา และ อื่น ๆ</option>
-                <option value="9">สสินค้ากระดาษ บรรจุภัณฑ์ เช่น กระดาษม้วน กระดาษลัง</option>
-                <option value="10">สินค้าอุปโภค บริโภค หรือ FMCG</option>
-            </select>
 
-            @if ($errors->has('product'))
-                <span class="invalid-feedback" role="alert">
-                     <strong>{{ $errors->first('product') }}</strong>
-               </span>
-            @endif
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-6 ">
-        <label for="start_county" class="col-md-4 col-form-label text-md-right">{{ __('ต้นทาง') }}<p>อำเภอ</p></label>
-            <input id="start_county" type="text" class="form-control" name="start_county" required >
-
-            <label for="start_zone" class="col-md-4 col-form-label text-md-right">{{ __('จังหวัด') }}</label>
-              <input id="start_zone" type="text" class="form-control" name="start_zone" required >
-            </div>
-        </div>
-
-    <div class="form-group row">
-        <label for="namestart" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
-        <div class="col-md-6">
-            <input id="namestart" type="text" class="form-control" name="namestart" required>
-        </div>
-    </div>
-
-        <div class="form-group row">
-            <label for="telstart" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
-            <div class="col-md-6">
-                <input id="telstart" type="text" class="form-control" name="telstart" required>
-            </div>
-        </div>
-
-
-    <div class="form-group row">
-
-        <div class="col-6 ">
-            <label for="destination_county" class="col-md-4 col-form-label text-md-right">{{ __('ปลายทาง') }}<p>อำเภอ</p></label>
-            <input id="destination_county" type="text" class="form-control" name="destination_county" required >
-
-            <label for="destination_zone" class="col-md-4 col-form-label text-md-right">{{ __('จังหวัด') }}</label>
-            <input id="destination_zone" type="text" class="form-control" name="destination_zone" required >
-        </div>
-        </div>
-
-    <div class="form-group row">
-        <label for="namedestination" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ติดต่อ') }}</label>
-        <div class="col-md-6">
-            <input id="namedestination" type="text" class="form-control" name="namedestination" required>
-        </div>
-    </div>
-        <div class="form-group row">
-            <label for="teldestination" class="col-md-4 col-form-label text-md-right">{{ __('โทรศัพท์ชื่อผู้ติดต่อ') }}</label>
-            <div class="col-md-6">
-                <input id="teldestination" type="text" class="form-control" name="teldestination" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="date_start" class="col-md-4 col-form-label text-md-right">{{ __('วันที่') }}</label>
-            <div class="col-md-6">
-                <input id="date_start" type="date" class="form-control" name="date_start" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-3">
-                <label for="weight" class="col-md-6 col-form-label text-md-right">{{ __('น้ำหนัก') }}</label>
-                <input id="weight" type="text" class="form-control" name="weight" required>
-            </div>
-            <div class="col-md-3">
-                <label for="wide" class="col-md-6 col-form-label text-md-right">{{ __('กว้าง') }}</label>
-                <input id="wide" type="text" class="form-control" name="wide" required>
-            </div>
-            <div class="col-md-3">
-                <label for="long" class="col-md-6 col-form-label text-md-right">{{ __('ยาว') }}</label>
-                <input id="long" type="text" class="form-control" name="long" required>
-            </div>
-            <div class="col-md-3">
-                <label for="high" class="col-md-6 col-form-label text-md-right">{{ __('สูง') }}</label>
-                <input id="high" type="text" class="form-control" name="high" required>
-            </div>
-        </div>
-         {{--'weight','wide','long','high'--}}
-    <div class="form-group row mb-0">
-        <div class="col-md-6 offset-md-4">
-            <button class="btn btn-primary" type="submit" value="Submit">{{ __('submit') }}</button>
-
-        </div>
-    </div>
-
-</form>
-    </div>
 @endsection
 
 @section('scripttype')
@@ -176,6 +160,7 @@
 
         $('div.setup-panel div a.btn-primary').trigger('click');
     });
+
 </script>
 @endsection
 
